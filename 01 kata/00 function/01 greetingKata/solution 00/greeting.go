@@ -34,6 +34,7 @@ func main() {
 	fmt.Println(Greet(&bob, &charlieDianneEscape))
 }
 
+//Greet Greets the persons that are transferred as parameters
 func Greet(pointer ...*string) string {
 	if isNil, standardGreeting := checkForNil(pointer); isNil {
 		return standardGreeting
@@ -42,26 +43,26 @@ func Greet(pointer ...*string) string {
 	if len(pointer) == 1 {
 		name := *pointer[0]
 		return greetSinglePerson(name)
-	} else {
-		var listOfNames []string
-		for i := 0; i < len(pointer); i++ {
-			s := *pointer[i]
-
-			if strings.Contains(s, ",") {
-				if strings.Contains(s, "\"") {
-					listOfNames = append(listOfNames, strings.Replace(s, "\"", "", -1))
-				} else {
-					split := strings.Split(s, ",")
-					for _, n := range split {
-						listOfNames = append(listOfNames, strings.TrimSpace(n))
-					}
-				}
-			} else {
-				listOfNames = append(listOfNames, s)
-			}
-		}
-		return greetListOfPersons(listOfNames)
 	}
+
+	var listOfNames []string
+	for i := 0; i < len(pointer); i++ {
+		s := *pointer[i]
+
+		if strings.Contains(s, ",") {
+			if strings.Contains(s, "\"") {
+				listOfNames = append(listOfNames, strings.Replace(s, "\"", "", -1))
+			} else {
+				split := strings.Split(s, ",")
+				for _, n := range split {
+					listOfNames = append(listOfNames, strings.TrimSpace(n))
+				}
+			}
+		} else {
+			listOfNames = append(listOfNames, s)
+		}
+	}
+	return greetListOfPersons(listOfNames)
 }
 
 func checkForNil(pointer []*string) (bool, string) {

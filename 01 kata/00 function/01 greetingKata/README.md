@@ -4,6 +4,8 @@ This kata comes from the github account of [Test Double](https://github.com/test
 
 This is a classic example of Detroid (or "Classic" or "bottom-up") TDD. With each new requirement an additional functionality is added to the previous one.
 
+Note: I have slightly modified one requirement. In steps 5 and 7 there is a comma before the final "and". This looks wrong to me. It also contradicts the requirement from step 6, where this comma is missing.
+
 ## Requirement 1
 
 Write a method greet(name) that interpolates name in a simple greeting. For example, when name is "Bob", the method should return a string "Hello, Bob.".

@@ -29,9 +29,6 @@ func main() {
 	// Step 7: String with comma
 	charlieDianne := "Charlie, Dianne"
 	fmt.Println(Greet(&bob, &charlieDianne))
-	// Step 8: Escape
-	charlieDianneEscape := "\"Charlie, Dianne\""
-	fmt.Println(Greet(&bob, &charlieDianneEscape))
 }
 
 //Greet Greets the persons that are transferred as parameters
@@ -39,7 +36,6 @@ func Greet(pointer ...*string) string {
 	if isNil, standardGreeting := checkForNil(pointer); isNil {
 		return standardGreeting
 	}
-
 	if len(pointer) == 1 {
 		name := *pointer[0]
 		return greetSinglePerson(name)
@@ -50,13 +46,9 @@ func Greet(pointer ...*string) string {
 		s := *pointer[i]
 
 		if strings.Contains(s, ",") {
-			if strings.Contains(s, "\"") {
-				listOfNames = append(listOfNames, strings.Replace(s, "\"", "", -1))
-			} else {
-				split := strings.Split(s, ",")
-				for _, n := range split {
-					listOfNames = append(listOfNames, strings.TrimSpace(n))
-				}
+			split := strings.Split(s, ",")
+			for _, n := range split {
+				listOfNames = append(listOfNames, strings.TrimSpace(n))
 			}
 		} else {
 			listOfNames = append(listOfNames, s)
@@ -80,10 +72,9 @@ func greetSinglePerson(name string) string {
 }
 
 func greetListOfPersons(listOfNames []string) string {
+	var s string
 	var greet []string
 	var shout []string
-	var s string
-
 	for _, name := range listOfNames {
 		if name == strings.ToUpper(name) {
 			shout = append(shout, name)
@@ -91,7 +82,6 @@ func greetListOfPersons(listOfNames []string) string {
 			greet = append(greet, name)
 		}
 	}
-
 	s += fmt.Sprint("Hello, ")
 	for idx, name := range greet {
 		s += fmt.Sprintf("%s", name)

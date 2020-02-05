@@ -9,3 +9,11 @@ The 3 consider kata forms are ordered by size:
 1. Function Kata: A Function Kata is a small task whose problem is an algorithm. The solution consists mostly of a single function.
 2. Class Kata: The solution consists of a class with several thematically related functions. Often it concerns a described data type and several operations that can be applied to it.
 3. Library Kata: Here the solution consists of several classes that can be combined in a library. The technical scope of these katas can already represent entire applications.
+
+# Exemplary Solution
+
+I will try to create a step by step guide for each problem.
+
+I recommend to try the exercise yourself first. Afterwards you can compare your own solution with mine. Maybe you will have a better one in the end.
+
+Otherwise you can use my tutorial to look at the next step if you have troubles. After that you should try yourself again. 

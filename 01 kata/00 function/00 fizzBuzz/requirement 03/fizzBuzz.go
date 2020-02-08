@@ -2,21 +2,23 @@ package main
 
 import (
 	"fmt"
+	"strconv"
 )
 
 func main() {
-	to100 := generateSequenceFrom1To100()
-	fb := fizzBuzz(to100)
+	to100 := GenerateSequenceFrom1To100()
+	fizz := FizzBuzz(to100)
 
-	for idx, i := range fb {
+	for idx := range fizz {
 		fmt.Printf("Number [%d]:", idx+1)
 		fmt.Printf("\t")
-		fmt.Print(i)
+		fmt.Print(fizz[idx])
 		fmt.Printf("\n")
 	}
 }
 
-func generateSequenceFrom1To100() []int {
+//GenerateSequenceFrom1To100 Generates a list from 1 to 100
+func GenerateSequenceFrom1To100() []int {
 	start := 1
 	max := 100
 	step := 1
@@ -28,7 +30,7 @@ func generateSequenceFrom1To100() []int {
 	return s
 }
 
-func fizzBuzz(a []int) []string {
+func FizzBuzz(a []int) []string {
 	s := make([]string, len(a))
 	for idx, i := range a {
 		if i%3 == 0 {
@@ -38,7 +40,7 @@ func fizzBuzz(a []int) []string {
 			s[idx] += fmt.Sprint("Buzz")
 		}
 		if len(s[idx]) == 0 {
-			s[idx] = fmt.Sprint(i)
+			s[idx] = strconv.Itoa(i)
 		}
 	}
 	return s

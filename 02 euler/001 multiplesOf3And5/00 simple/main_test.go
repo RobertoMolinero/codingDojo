@@ -16,8 +16,8 @@ func TestMultiplesOf3And5(t *testing.T) {
 		want  int
 	}{
 		{"MultiplesOf3And5 with Limit 10", 10, 23},
-		{"MultiplesOf3And5 with Limit 10", 100, 2318},
-		{"MultiplesOf3And5 with Limit 10", 1000, 233168},
+		{"MultiplesOf3And5 with Limit 100", 100, 2318},
+		{"MultiplesOf3And5 with Limit 1000", 1000, 233168},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
